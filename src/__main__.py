@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-from config import BOT_TOKEN
+from src.config import BOT_TOKEN
 
 
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
