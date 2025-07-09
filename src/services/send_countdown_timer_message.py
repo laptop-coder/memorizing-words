@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 
-async def countdown_timer_message(
+async def send_countdown_timer_message(
     context: ContextTypes.DEFAULT_TYPE, seconds: int, update: Update
 ):
     if update.effective_chat is not None and update.message is not None:
