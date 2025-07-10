@@ -26,9 +26,11 @@ async def send_list_of_random_words_message(
             update.effective_message.message_id,
         )
 
+        list_of_words: list[str] = create_list_of_random_words(number_of_words)
+
         # Send the list of random words
         list_of_random_words_message = await update.message.reply_text(
-            "\n".join(create_list_of_random_words(number_of_words))
+            "\n".join(list_of_words)
         )
 
         await send_countdown_timer_message(context, number_of_words + 1, update)
@@ -39,3 +41,6 @@ async def send_list_of_random_words_message(
             update.effective_chat.id,
             list_of_random_words_message.message_id,
         )
+
+        if context.user_data is not None:
+            context.user_data["list_of_words"] = list_of_words
