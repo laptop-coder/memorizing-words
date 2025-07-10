@@ -11,8 +11,8 @@ async def send_user_answer_check_message(
         list_of_words = context.user_data.get("list_of_words")
         if list_of_words is not None:
             user_answer = str(update.message.text).split("\n")
-            if [item.lower() for item in list_of_words] == [
-                item.lower() for item in user_answer
+            if [item.lower() for item in sorted(list_of_words)] == [
+                item.lower() for item in sorted(user_answer)
             ]:
                 await update.message.reply_text(RIGHT)
                 context.user_data.pop("list_of_words")
